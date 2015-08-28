@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MSP Festivals</title>
+    <!--STYLES-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+<body ng-app="myApp" ng-controller="mapboxController">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">MSP Festivals</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Add Your Festival!</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<mapbox map-id = "mbankston.n73om6d8"
+        width = 100%
+        height = 500
+        lat = "44.97"
+        lng = "-93.265"
+        zoom = "11" scale-to-fit>
+
+    <!--<marker lat="44.956230" lng="-93.285863" color="blue" icon="zoo">-->
+        <!--<h1>status: {{ status }}</h1>-->
+        <!--{{ farmersMarkets[0] | json}}-->
+    <!--</marker>-->
+
+    <marker ng-repeat="market in farmersMarkets | filter: filterTerm"
+            lat="{{market.coords.lat}}"
+            lng="{{market.coords.lng}}"
+            color="blue"
+            icon="marker-stroked">
+        <h1>{{market.name}}</h1>
+        <p>{{market.times}}</p>
+    </marker>
+</mapbox>
+<input type="text" ng-model="filterTerm" placeholder="search markets">
+<ul>
+    <li ng-repeat="market in farmersMarkets | filter: filterTerm">
+        <h3>{{market.name}}</h3>
+        <p>{{market.times}}</p>
+    </li>
+</ul>
+</mapbox>
+</body>
+<!--SCRIPTS-->
+<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+<script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+<script type="text/javascript" src="/vendors/angular-mapbox/dist/angular-mapbox.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+</html>
