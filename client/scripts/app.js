@@ -7,38 +7,46 @@
             //mapboxService.fitMapToMarkers(map);
         }, 100);
 
-        $scope.farmersMarkets = [
+        $scope.festivals = [
             {
                 name: 'Northeast Night Market',
-                times: 'Tuesday, June 23, 6:00-10:00PM',
+                times: 'Tuesday, June 23 2015',
                 coords: {
                     lat: 44.977753,
                     lng: -93.265011
-                }
+                },
+                location: 'Northeast',
+                website: 'http://bauhausbrewlabs.com/blog/2015/northeast-night-market-at-the-haus'
             },
             {
                 name: 'Japanese Lantern Lighting Festival',
-                times: 'August 23, 3:00-9:00PM',
+                times: 'August 23, 2015',
                 coords: {
                     lat: 44.979853,
                     lng: -93.155431
-                }
+                },
+                location: 'Como',
+                website: 'http://www.comozooconservatory.org/attractions/gardens/japanesegarden/japanese-lantern-festival/'
             },
             {
                 name: 'Powderhorn Art Fair',
-                times: 'August 8 and 9, 10:00AM-6:00PM',
+                times: 'August 8, 2015',
                 coords: {
                     lat: 44.939803,
                     lng: -93.253334
-                }
+                },
+                location: 'Powderhorn',
+                website: 'http://www.powderhornartfair.com/'
             },
             {
                 name: 'Basilica Block Party',
-                times: 'July 10th and 11th, 5:00-10:00PM',
+                times: 'July 10th, 2015',
                 coords: {
                     lat: 44.973076,
                     lng: -93.286344
-                }
+                },
+                location: 'Loring Park',
+                website: 'http://basilicablockparty.org/'
             },
         ];
         $scope.mapMovedCallback = function(bounds) {
@@ -49,6 +57,16 @@
         $scope.mapZoomedCallback = function(bounds) {
             console.log('You zoomed the map to:');
             console.log(bounds.getCenter().toString());
+        };
+
+        $scope.filter = {};
+
+        $scope.getOptionsFor = function (propName) {
+            return ($scope.festivals || []).map(function (w) {
+                return w[propName];
+            }).filter(function (w, idx, arr) {
+                return arr.indexOf(w) === idx;
+            });
         };
     });
 

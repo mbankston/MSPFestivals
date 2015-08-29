@@ -36,23 +36,32 @@
         <!--{{ farmersMarkets[0] | json}}-->
     <!--</marker>-->
 
-    <marker ng-repeat="market in farmersMarkets | filter: filterTerm"
-            lat="{{market.coords.lat}}"
-            lng="{{market.coords.lng}}"
+    <marker ng-repeat="festival in festivals | filter: filterTerm"
+            lat="{{festival.coords.lat}}"
+            lng="{{festival.coords.lng}}"
             color="blue"
             icon="marker-stroked">
-        <h1>{{market.name}}</h1>
-        <p>{{market.times}}</p>
+        <h1>{{festival.name}}</h1>
+        <p>{{festival.times}}</p>
     </marker>
 </mapbox>
-<input type="text" ng-model="filterTerm" placeholder="search markets">
+<input type="text" ng-model="filterTerm" placeholder="search festivals">
 <ul>
-    <li ng-repeat="market in farmersMarkets | filter: filterTerm">
-        <h3>{{market.name}}</h3>
-        <p>{{market.times}}</p>
+    <li ng-repeat="festival in festivals | filter: filterTerm |filter: | orderBy: 'times' ">
+        <h3>{{festival.name}}</h3>
+        <p>{{festival.times}}</p>
+        <p>{{festival.location}}</p>
+        <p><a href="{{festival.website}}">WEBSITE</a></p>
     </li>
 </ul>
 </mapbox>
+<!--<div ng-repeat="(prop, ignoredValue) in festivals[0]" ng-init="filter[prop]={}">-->
+    <!--<b>{{prop | capitalizeFirst}}:</b><br />-->
+        <!--<span class="quarter" ng-repeat="opt in getOptionsFor(prop)">-->
+            <!--<b><input type="checkbox" ng-model="filter[prop][opt]" />&nbsp;{{opt}}</b>-->
+        <!--</span>-->
+    <!--<hr />-->
+<!--</div>-->
 </body>
 <!--SCRIPTS-->
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
