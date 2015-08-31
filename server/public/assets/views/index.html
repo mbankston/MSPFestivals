@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSP Festivals</title>
     <!--STYLES-->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
@@ -9,59 +10,69 @@
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 </head>
-<body ng-app="myApp" ng-controller="mapboxController">
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">MSP Festivals</a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Add Your Festival!</a></li>
+<div ng-app="myApp" ng-controller="mapboxController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MSP Festivals</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Add Your Festival!</a></li>
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-<mapbox map-id = "mbankston.n73om6d8"
-        width = 100%
-        height = 500
-        lat = "44.97"
-        lng = "-93.265"
-        zoom = "11" scale-to-fit>
+    </nav>
+    <mapbox map-id = "mbankston.n73om6d8"
+            width = 100%
+            height = 500
+            lat = "44.97"
+            lng = "-93.265"
+            zoom = "11" scale-to-fit>
 
-    <!--<marker lat="44.956230" lng="-93.285863" color="blue" icon="zoo">-->
+        <!--<marker lat="44.956230" lng="-93.285863" color="blue" icon="zoo">-->
         <!--<h1>status: {{ status }}</h1>-->
         <!--{{ farmersMarkets[0] | json}}-->
-    <!--</marker>-->
+        <!--</marker>-->
 
-    <marker ng-repeat="festival in festivals | filter: filterTerm"
-            lat="{{festival.coords.lat}}"
-            lng="{{festival.coords.lng}}"
-            color="blue"
-            icon="marker-stroked">
-        <h1>{{festival.name}}</h1>
-        <p>{{festival.times}}</p>
-    </marker>
-</mapbox>
-<input type="text" ng-model="filterTerm" placeholder="search festivals">
-<ul>
-    <li ng-repeat="festival in festivals | filter: filterTerm | orderBy: 'times'">
-        <h3>{{festival.name}}</h3>
-        <p>{{festival.times}}</p>
-        <p>{{festival.location}}</p>
-        <p><a href="{{festival.website}}">WEBSITE</a></p>
-    </li>
-</ul>
-</mapbox>
-<!--<div ng-repeat="(prop, ignoredValue) in festivals[0]" ng-init="filter[prop]={}">-->
-    <!--<b>{{prop | capitalizeFirst}}:</b><br />-->
-        <!--<span class="quarter" ng-repeat="opt in getOptionsFor(prop)">-->
-            <!--<b><input type="checkbox" ng-model="filter[prop][opt]" />&nbsp;{{opt}}</b>-->
-        <!--</span>-->
-    <!--<hr />-->
-<!--</div>-->
+        <marker ng-repeat="festival in festivals | filter: filterTerm "
+                lat="{{festival.coords.lat}}"
+                lng="{{festival.coords.lng}}"
+                color="blue"
+                icon="marker-stroked">
+            <h1>{{festival.name}}</h1>
+            <p>{{festival.times}}</p>
+        </marker>
+    </mapbox>
+    <div class="searchbox col-md-6">
+        <input type="text" ng-model="filterTerm" placeholder="search festivals">
+        <ul class="list-unstyled">
+            <li ng-repeat="festival in festivals | filter: filterTerm">
+                <h3>{{festival.name}}</h3>
+                <p>{{festival.times}}</p>
+                <p><a href="{{festival.website}}">WEBSITE</a></p>
+            </li>
+        </ul>
+    </div>
+    </mapbox>
+    <div class="checkboxes col-md-6">
+        <div class="locfilter">
+            <h3>Select a City/Neighborhood</h3>
+            <div ng-repeat="festival in festivals">
+                <input type="checkbox" ng-model="f.Loc">{{festival.location}}
+            </div>
+        </div>
+
+        <div class="monthfilter">
+            <h3>Select a Month</h3>
+            <div ng-repeat="festival in festivals">
+                <input type="checkbox" ng-model="f.mon">{{festival.month}}
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <!--SCRIPTS-->
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
