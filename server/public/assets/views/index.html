@@ -37,7 +37,7 @@
         <!--{{ farmersMarkets[0] | json}}-->
         <!--</marker>-->
 
-        <marker ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter"
+        <marker ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter| filter: monthFilter"
                 lat="{{festival.coords.lat}}"
                 lng="{{festival.coords.lng}}"
                 color="blue"
