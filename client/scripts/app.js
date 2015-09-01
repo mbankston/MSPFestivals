@@ -65,6 +65,59 @@
 
 
 
+        //$scope.addLocation = function(location){
+        //    $scope.locationList.push(location);
+        //};
+        //
+        //$scope.customArrayFilter = function(location){
+        //    if(locationList.lenth==0){
+        //        return true
+        //    }
+        //    return locationList.contains(location);
+        //}
 
+        $scope.locationList=[];
+
+        $scope.includeLocation = function(location) {
+            var i = $scope.locationList.indexOf(location);
+            if (i > -1) {
+                $scope.locationList.splice(i,1);
+            }else {
+                $scope.locationList.push(location);
+            }
+        };
+
+        $scope.locationFilter = function(festivals){
+
+            if ($scope.locationList.length > 0){
+                if ($scope.locationList.indexOf(festivals.location) < 0)
+
+                return;
+
+            }
+            return festivals
+        }
+
+        $scope.monthList=[];
+
+        $scope.includeMonth = function(month) {
+            var i = $scope.monthList.indexOf(month);
+            if (i > -1) {
+                $scope.monthList.splice(i,1);
+            }else {
+                $scope.monthList.push(month);
+            }
+        };
+
+        $scope.monthFilter = function(festivals){
+
+            if ($scope.monthList.length > 0){
+                if ($scope.monthList.indexOf(festivals.month) < 0)
+
+                    return;
+
+            }
+            return festivals
+        }
     });
 

@@ -37,7 +37,7 @@
         <!--{{ farmersMarkets[0] | json}}-->
         <!--</marker>-->
 
-        <marker ng-repeat="festival in festivals | filter: filterTerm "
+        <marker ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter"
                 lat="{{festival.coords.lat}}"
                 lng="{{festival.coords.lng}}"
                 color="blue"
@@ -49,7 +49,7 @@
     <div class="searchbox col-md-6">
         <input type="text" ng-model="filterTerm" placeholder="search festivals">
         <ul class="list-unstyled">
-            <li ng-repeat="festival in festivals | filter: filterTerm">
+            <li ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter | filter: monthFilter" >
                 <h3>{{festival.name}}</h3>
                 <p>{{festival.times}}</p>
                 <p><a href="{{festival.website}}">WEBSITE</a></p>
@@ -61,14 +61,18 @@
         <div class="locfilter">
             <h3>Select a City/Neighborhood</h3>
             <div ng-repeat="festival in festivals">
-                <input type="checkbox" ng-model="f.Loc">{{festival.location}}
+                <input type="checkbox" ng-model="festival.Loc" ng-click="includeLocation(festival.location)">{{festival.location}}
             </div>
+            <!--<input type="checkbox" ng-click="includeLocation('Como')"/>Como-->
+            <!--<input type="checkbox" ng-click="includeLocation('Loring Park')"/>Loring Park-->
+            <!--<input type="checkbox" ng-click="includeLocation('Powderhorn')"/>Powderhorn-->
+            <!--<input type="checkbox" ng-click="includeLocation('Northeast')"/>Northeast-->
         </div>
 
         <div class="monthfilter">
             <h3>Select a Month</h3>
             <div ng-repeat="festival in festivals">
-                <input type="checkbox" ng-model="f.mon">{{festival.month}}
+                <input type="checkbox" ng-click="includeMonth(festival.month)">{{festival.month}}
             </div>
         </div>
     </div>
