@@ -1,5 +1,21 @@
  var myApp = angular.module('myApp', ['angular-mapbox']);
 
+ myApp.filter('unique', function() {
+     return function(collection, keyname) {
+         var output = [],
+             keys = [];
+
+         angular.forEach(collection, function(item) {
+             var key = item[keyname];
+             if(keys.indexOf(key) === -1) {
+                 keys.push(key);
+                 output.push(item);
+             }
+         });
+         return output;
+     };
+ });
+
     myApp.controller('mapboxController', function($scope, $timeout, mapboxService) {
         mapboxService.init({accessToken: 'pk.eyJ1IjoibWJhbmtzdG9uIiwiYSI6IjQxN2MwNTk5ZDIzNGRlNGE3YWZkMTU3OWY0NTAwMzc0In0.-xqqJd_v-EHWjqf3YlQmdg'});
         $timeout(function () {
@@ -119,5 +135,7 @@
             }
             return festivals
         }
+
+
     });
 

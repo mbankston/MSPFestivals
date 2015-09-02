@@ -60,7 +60,7 @@
     <div class="checkboxes col-md-6">
         <div class="locfilter">
             <h3>Select a City/Neighborhood</h3>
-            <div ng-repeat="festival in festivals">
+            <div ng-repeat="festival in festivals | unique: 'location'">
                 <input type="checkbox" ng-model="festival.Loc" ng-click="includeLocation(festival.location)">{{festival.location}}
             </div>
             <!--<input type="checkbox" ng-click="includeLocation('Como')"/>Como-->
@@ -71,7 +71,7 @@
 
         <div class="monthfilter">
             <h3>Select a Month</h3>
-            <div ng-repeat="festival in festivals">
+            <div ng-repeat="festival in festivals | unique: 'month'">
                 <input type="checkbox" ng-click="includeMonth(festival.month)">{{festival.month}}
             </div>
         </div>
