@@ -52,9 +52,10 @@
         <input type="text" class="form-control" ng-model="filterTerm" placeholder="search festivals">
         <ul class="list-unstyled">
             <li class="well" ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter | filter: monthFilter" >
-                <h3>{{festival.name}}</h3>
+                <h3><a href="{{festival.website}}">{{festival.name}}</a></h3>
                 <p>{{festival.times}}</p>
-                <p><a href="{{festival.website}}">WEBSITE</a></p>
+                <p>{{festival.description}}</p>
+
             </li>
         </ul>
     </div>
@@ -66,10 +67,6 @@
                 <input type="checkbox" id="toggle{{festival.location}}" ng-model="festival.Loc" ng-click="includeLocation(festival.location)">
                 <label for="toggle{{festival.location}}">{{festival.location}}</label>
             </div>
-            <!--<input type="checkbox" ng-click="includeLocation('Como')"/>Como-->
-            <!--<input type="checkbox" ng-click="includeLocation('Loring Park')"/>Loring Park-->
-            <!--<input type="checkbox" ng-click="includeLocation('Powderhorn')"/>Powderhorn-->
-            <!--<input type="checkbox" ng-click="includeLocation('Northeast')"/>Northeast-->
         </div>
 
         <div class="monthfilter">

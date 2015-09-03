@@ -87,7 +87,7 @@ label:hover, input:focus + label {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
 
 input:checked + label {
-  background-color: #ab576c; }
+  background-color: #DA0032; }
 
 input:checked + label::before {
   background-color: #fff; }

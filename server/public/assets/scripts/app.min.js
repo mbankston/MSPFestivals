@@ -33,7 +33,8 @@
                 },
                 location: 'Northeast',
                 website: 'http://bauhausbrewlabs.com/blog/2015/northeast-night-market-at-the-haus',
-                month: 'June'
+                month: 'June',
+                description: 'Kogi biodiesel chillwave, flexitarian dreamcatcher heirloom squid forage pug post-ironic locavore fashion axe. Shabby chic direct trade +1 artisan, Shoreditch four loko seitan bicycle rights jean shorts.'
             },
             {
                 name: 'Japanese Lantern Lighting Festival',
@@ -44,7 +45,8 @@
                 },
                 location: 'Como',
                 website: 'http://www.comozooconservatory.org/attractions/gardens/japanesegarden/japanese-lantern-festival/',
-                month: 'August'
+                month: 'August',
+                description: 'Ennui chambray Neutra leggings. Lumbersexual pug migas, wolf before they sold out iPhone letterpress locavore mixtape shabby chic raw denim put a bird on it butcher.'
             },
             {
                 name: 'Powderhorn Art Fair',
@@ -55,7 +57,8 @@
                 },
                 location: 'Powderhorn',
                 website: 'http://www.powderhornartfair.com/',
-                month: 'August'
+                month: 'August',
+                description: 'Gluten-free wayfarers photo booth heirloom lomo, farm-to-table Shoreditch.'
             },
             {
                 name: 'Basilica Block Party',
@@ -66,7 +69,8 @@
                 },
                 location: 'Loring Park',
                 website: 'http://basilicablockparty.org/',
-                month: 'July'
+                month: 'July',
+                description: "You probably haven't heard of them vinyl authentic readymade, gluten-free street art banh mi actually. Selfies Pinterest heirloom church-key Tumblr."
             },
         ];
         $scope.mapMovedCallback = function(bounds) {
