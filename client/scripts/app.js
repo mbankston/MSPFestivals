@@ -122,6 +122,7 @@
                 $scope.monthList.splice(i,1);
             }else {
                 $scope.monthList.push(month);
+
             }
         };
 

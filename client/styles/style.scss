@@ -6,3 +6,78 @@ body {
 .navbar {
   margin-bottom: 0;
 }
+
+.navbar-brand {
+  letter-spacing: .1em;
+}
+.searchbox {
+  margin-top: 20px;
+}
+.searchbox .icon {
+  top: 50%;
+  margin: 15px 0 0 15px;
+  z-index: 1;
+  color: black;
+}
+input {
+   position: absolute;
+   left: -9999px;
+ }
+.form-control {
+  left: 0px;
+  width: 100%;
+  position: relative;
+  padding-left: 10px;
+}
+::-webkit-input-placeholder::before { font-family: fontAwesome; content:'\f002  '; color: #1EB2B8 }
+::-moz-placeholder::before  { font-family: fontAwesome; content:'\f002  '; color: #1EB2B8 } /* firefox 19+ */
+:-ms-input-placeholder::before  { font-family: fontAwesome; content:'\f002  '; color: #1EB2B8 } /* ie */
+input:-moz-placeholder::before  { font-family: fontAwesome; content:'\f002  '; color: #1EB2B8 }
+
+label {
+  //display: block;
+  width: 30%;
+  position: relative;
+  margin: 10px 0 10px 0;
+  padding: 15px 30px 15px 62px;
+  border: 3px solid #fff;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #1EB2B8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s, box-shadow .2s;
+}
+
+label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  width: 32px;
+  border: 3px solid #fff;
+  border-radius: 100px;
+  transition: background-color .2s;
+}
+label:first-of-type {
+  transform: translateX(-40px);
+}
+
+label:last-of-type {
+  transform: translateX(40px);
+}
+
+label:hover, input:focus + label {
+  box-shadow: 0 0 20px rgba(0, 0, 0, .6);
+}
+
+input:checked + label {
+  background-color: #ab576c;
+}
+
+input:checked + label::before {
+  background-color: #fff;
+}
