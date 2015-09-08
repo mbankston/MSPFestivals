@@ -72,6 +72,43 @@
                 month: 'July',
                 description: "You probably haven't heard of them vinyl authentic readymade, gluten-free street art banh mi actually. Selfies Pinterest heirloom church-key Tumblr."
             },
+            {
+                name: 'Uptown Art Fair',
+                times: 'August 7th-9th',
+                coords: {
+                    lat: 44.948273,
+                    lng: -93.298210
+                },
+                location: 'Uptown',
+                website: 'http://uptownartfair.com/',
+                month: 'August',
+                description: "You probably haven't heard of them vinyl authentic readymade, gluten-free street art banh mi actually. Selfies Pinterest heirloom church-key Tumblr."
+            },
+            {
+                name: 'Minnesota State Fair',
+                times: 'August 27th-September 7th',
+                coords: {
+                    lat: 44.981117,
+                    lng: -93.167630
+                },
+                location: 'Como',
+                website: 'http://www.mnstatefair.org/',
+                month: 'August',
+                description: "You probably haven't heard of them vinyl authentic readymade, gluten-free street art banh mi actually. Selfies Pinterest heirloom church-key Tumblr."
+            },
+            {
+                name: 'Art in Bloom',
+                times: 'April 30th-May 3rd',
+                coords: {
+                    lat: 44.958170,
+                    lng: -93.274113
+                },
+                location: 'Whittier',
+                website: 'http://new.artsmia.org/art-in-bloom-2015/',
+                month: 'April',
+                description: "You probably haven't heard of them vinyl authentic readymade, gluten-free street art banh mi actually. Selfies Pinterest heirloom church-key Tumblr."
+            },
+
         ];
         $scope.mapMovedCallback = function(bounds) {
             console.log('You repositioned the map to:');

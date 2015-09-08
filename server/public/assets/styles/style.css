@@ -19,6 +19,11 @@ body {
   z-index: 1;
   color: black; }
 
+.list-unstyled {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%; }
+
 input {
   position: absolute;
   left: -9999px; }
@@ -52,7 +57,7 @@ input:-moz-placeholder::before {
   color: #1EB2B8; }
 
 label {
-  width: 30%;
+  width: 45%;
   position: relative;
   margin: 10px 0 10px 0;
   padding: 15px 30px 15px 62px;
@@ -63,7 +68,8 @@ label {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s; }
+  transition: background-color 0.2s, box-shadow 0.2s;
+  text-align: center; }
 
 label::before {
   content: '';

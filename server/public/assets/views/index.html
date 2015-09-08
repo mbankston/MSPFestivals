@@ -34,11 +34,6 @@
             lng = "-93.265"
             zoom = "11" scale-to-fit>
 
-        <!--<marker lat="44.956230" lng="-93.285863" color="blue" icon="zoo">-->
-        <!--<h1>status: {{ status }}</h1>-->
-        <!--{{ farmersMarkets[0] | json}}-->
-        <!--</marker>-->
-
         <marker ng-repeat="festival in festivals | filter: filterTerm | filter: locationFilter| filter: monthFilter"
                 lat="{{festival.coords.lat}}"
                 lng="{{festival.coords.lng}}"
@@ -48,6 +43,7 @@
             <p>{{festival.times}}</p>
         </marker>
     </mapbox>
+    <div class="results">
     <div class="searchbox col-md-6 form-group">
         <input type="text" class="form-control" ng-model="filterTerm" placeholder="search festivals">
         <ul class="list-unstyled">
@@ -78,10 +74,21 @@
         </div>
     </div>
 </div>
+</div>
 </body>
 <!--SCRIPTS-->
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
 <script type="text/javascript" src="/vendors/angular-mapbox/dist/angular-mapbox.min.js"></script>
 <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67276768-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 </html>
